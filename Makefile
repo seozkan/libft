@@ -6,7 +6,7 @@
 #    By: seozkan <seozkan@student.42kocaeli.com.tr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 14:49:07 by seozkan           #+#    #+#              #
-#    Updated: 2023/04/21 20:44:03 by seozkan          ###   ########.fr        #
+#    Updated: 2023/04/21 21:44:26 by seozkan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,26 +75,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $@ $?
-	@clear
-	@sleep 0.3
 	@echo "$(CYAN)${NAME} ✔️"
 	@echo "$(YELLOW)Mandatory files compiled successfully ✔️$(END)"
 	@echo "$(CYAN)by seozkan ✔️$(END)"
 	
 
 bonus: $(OBJ) $(BNS_OBJ)
-	@$(AR) $@ $?
-	@clear
-	@sleep 0.3
+	@$(AR) $(NAME) $?
 	@echo "$(CYAN)${NAME} ✔️"
 	@echo "$(YELLOW)Bonus files compiled successfully ✔️$(END)"
 	@echo "$(CYAN)by seozkan ✔️$(END)"
 	
 %.o: %.c
 	$(CC) -c $(FLAGS) $?
-	@clear
-	@echo "$(YELLOW)$@ build$(CYAN) ✔️"
-	@sleep 0.03
+	@echo "$(YELLOW)$@$(CYAN) ✔️"
 	
 clean:
 	$(RM) $(OBJ) $(BNS_OBJ)
