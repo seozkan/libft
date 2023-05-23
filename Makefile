@@ -6,7 +6,7 @@
 #    By: seozkan <seozkan@student.42kocaeli.com.tr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 14:49:07 by seozkan           #+#    #+#              #
-#    Updated: 2023/04/21 21:44:26 by seozkan          ###   ########.fr        #
+#    Updated: 2023/05/23 23:02:24 by seozkan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ RM = @rm -f
 AR = ar rcs
 FLAGS = -Wall -Wextra -Werror
 
-YELLOW = \033[33;49;1m
-CYAN = \033[33;36;1m
-END = \033[0;0m
+YELLOW 	= \033[33;49;1m
+CYAN 	= \033[33;36;1m
+END 	= \033[0;0m
+CLEAR 	= \033[2K
 
 SRC = \
 	ft_isalpha.c \
@@ -75,20 +76,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $@ $?
-	@echo "$(CYAN)${NAME} ✔️"
-	@echo "$(YELLOW)Mandatory files compiled successfully ✔️$(END)"
-	@echo "$(CYAN)by seozkan ✔️$(END)"
+	@printf "$(CLEAR)$(CYAN)${NAME} ✔️\n"
+	@printf "$(CLEAR)$(YELLOW)Mandatory files compiled successfully ✔️$(END)\n"
+	@printf "$(CLEAR)$(CYAN)by seozkan ✔️$(END)\n"
 	
 
 bonus: $(OBJ) $(BNS_OBJ)
 	@$(AR) $(NAME) $?
-	@echo "$(CYAN)${NAME} ✔️"
-	@echo "$(YELLOW)Bonus files compiled successfully ✔️$(END)"
-	@echo "$(CYAN)by seozkan ✔️$(END)"
+	@printf "$(CLEAR)$(CYAN)${NAME} ✔️\n"
+	@printf "$(CLEAR)$(YELLOW)Bonus files compiled successfully ✔️$(END)\n"
+	@printf "$(CLEAR)$(CYAN)by seozkan ✔️$(END)\n"
 	
 %.o: %.c
 	$(CC) -c $(FLAGS) $?
-	@echo "$(YELLOW)$@$(CYAN) ✔️"
+	@printf "$(CLEAR)Compiling: $(CYAN)$<$(END)\r"
 	
 clean:
 	$(RM) $(OBJ) $(BNS_OBJ)
